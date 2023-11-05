@@ -1,4 +1,5 @@
 import time
+import os
 import email
 import imaplib
 import smtplib
@@ -9,57 +10,67 @@ from firebase import FirebaseDB
 
 
 class MailChecker:
-    def __init__(self, email_address, password, imap_server, smtp_server):
-        self.email_address = email_address
+    def __init__(self, email, password, imap_server, smtp_server):
+        self.email_address = email
         self.password = password
         self.imap_server = imap_server
         self.smtp_server = smtp_server
+        self.attachment_save_path = "C:\\Users\\gapas\\PycharmProjects\\streamlit"  # Update the path here
 
-    def check_mail(self, subject_filter):
+    def check_mail(self, subject_filters):
         while True:
             # Connect to the IMAP server
             mail = imaplib.IMAP4_SSL(self.imap_server)
             mail.login(self.email_address, self.password)
             mail.select('inbox')
 
-            # Search for emails matching the subject filter
-            _, message_nums = mail.search(None, f'(UNSEEN SUBJECT "{subject_filter}")')
-            for num in message_nums[0].split():
-                _, msg_data = mail.fetch(num, '(RFC822)')
-                raw_email = msg_data[0][1]
-                email_message = email.message_from_bytes(raw_email)
+            for subject_filter in subject_filters:
+                _, message_nums = mail.search(None, f'(UNSEEN SUBJECT "{subject_filter}")')
+                for num in message_nums[0].split():
+                    _, msg_data = mail.fetch(num, '(RFC822)')
+                    raw_email = msg_data[0][1]
+                    email_message = email.message_from_bytes(raw_email)
 
-                # Extract information from the email
-                subject = email_message['Subject']
-                sender = email.utils.parseaddr(email_message['From'])[1]
-                attachments = []
-                content = ""
+                    # Extract information from the email
+                    subject = email_message['Subject']
+                    sender = email.utils.parseaddr(email_message['From'])[1]
+                    attachments = []
+                    content = ""
 
-                if email_message.is_multipart():
-                    for part in email_message.walk():
-                        if part.get_content_type().startswith('multipart/'):
-                            continue
-                        elif part.get_content_type().startswith('text/'):
-                            # Get the text content of the email
-                            content = part.get_payload(decode=True).decode()
-                        else:
-                            # Extract attachments
-                            attachments.append(part)
+                    if email_message.is_multipart():
+                        for part in email_message.walk():
+                            if part.get_content_type().startswith('multipart/'):
+                                continue
+                            elif part.get_content_type().startswith('text/'):
+                                # Get the text content of the email
+                                content = part.get_payload(decode=True).decode()
+                            else:
+                                # Extract attachments
+                                attachments.append(part)
 
-                # Process the extracted information as needed
-                print("Subject:", subject)
-                print("Sender:", sender)
-                if attachments:
-                    print("Attachments:")
-                    for attachment in attachments:
-                        filename = attachment.get_filename()
-                        # Save the attachment or process it further
-                        print("- Filename:", filename)
-                print("Content:", content)
+                    # Process the extracted information as needed
+                    print("Subject:", subject)
+                    print("Sender:", sender)
+                    if attachments:
+                        print("Attachments:")
+                        for attachment in attachments:
+                            filename = attachment.get_filename()
+
+                            # Save the attachment to the specified path
+                            if filename:
+                                download_path = os.path.join(self.attachment_save_path, filename)
+                                with open(download_path, "wb") as file:
+                                    file.write(attachment.get_payload(decode=True))
+                                print("- Saved Attachment:", download_path)
+
+                                # Send an email to notify the sender about the saved file
+                                notification_subject = f"Attachment '{filename}' is saved"
+                                notification_body = f"The attachment '{filename}' is saved in the specified path."
+                                self.send_email(sender, notification_subject, notification_body)
+
+                    print("Content:", content)
 
             mail.logout()
-
-            # Wait for one second before checking for new emails
             time.sleep(1)
 
     def send_email(self, recipient, subject, message):
@@ -114,10 +125,11 @@ class MailChecker:
         firebase_db.guardar_dataframe(tables_list, "db_collection", f"{mail_db}/{subject_db}", file_db)
 
 
-mail_checker = MailChecker("example@gmail.com", "example_pass", "imap.gmail.com", "smtp.gmail.com")
+#mail_checker = MailChecker("example6@gmail.com", "example_pass", "imap.gmail.com", "smtp.gmail.com")
 
-# Check for new emails with subject "test"
-mail_checker.check_mail("test")
+#subject_filters = ["test", "content", "mailer"]  # Update with desired subject filters
+#mail_checker.check_mail(subject_filters)
 
 # Send an email
 # mail_checker.send_email("recipient@example.com", "Hello", "This is the message body.")
+
