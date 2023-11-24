@@ -6,3 +6,6 @@ checker with the main program yet, this will appear in the next version.
 Consider this version to implement PyCharm, mainly because the code was 
 applied with this IDE. Also, to run the main app page, apply:
 'streamlit run Main_Page.py'
+
+The implementation was with Firebase: 
+https://console.firebase.google.com/project/streamlit-rca/overview?hl=es
