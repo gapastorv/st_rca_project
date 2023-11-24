@@ -1,3 +1,8 @@
-Second version implies now the login and signup implementations, also the mail checkr now just works with gmail and outlook. However, it's neccesary to mention that this version doesn't join the mail checker with the main program yet, this will appear in a next version.
+The second version now implies the login and signup implementations, 
+also the mail checker now works with Gmail and Outlook. However, 
+it's necessary to mention that this version doesn't join the mail 
+checker with the main program yet, this will appear in the next version.
 
-Consider for this version to implement PyCharm, mainly because the code was applied with this IDE. Also, to run the main app page, apply 'streamlit run Main_Page.py'
+Consider this version to implement PyCharm, mainly because the code was 
+applied with this IDE. Also, to run the main app page, apply:
+'streamlit run Main_Page.py'
