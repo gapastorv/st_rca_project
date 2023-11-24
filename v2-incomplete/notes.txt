@@ -1,0 +1,1 @@
+Second version implies now the login and signup implementations, also the mail checkr now just works with gmail and outlook. However, it's neccesary to mention that this version doesn't join the mail checker with the main program yet, this will appear in a next version
