@@ -136,6 +136,3 @@ class FirebaseDB:
             # Manejar errores inesperados
             return None, 2
 
-# firebase = FirebaseDB()
-# dataframe = firebase.extract_data("db_coord/test/coord")
-# print(dataframe)
