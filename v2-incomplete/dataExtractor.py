@@ -18,5 +18,5 @@ class DataExtractor:
                                      relative_columns=True)
         return table_data, title
 
-#save_data("uploaded_pdf.pdf", "testmail", "test")
+
 
