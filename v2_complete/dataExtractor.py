@@ -54,5 +54,3 @@ class DataExtractor:
         compiled[title] = value
         return compiled
 
-#save_data("uploaded_pdf.pdf", "testmail", "test")
-
