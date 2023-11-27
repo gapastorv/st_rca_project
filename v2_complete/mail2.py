@@ -167,18 +167,3 @@ class MailChecker:
             print()
 
         firebase_db.guardar_dataframe(tables_list, "db_collection", "db_paths", f"{mail_db}/{subject_db}", file_db)
-
-
-# Crear una instancia de MailChecker para Gmail
-#mail_checker_gmail = MailChecker("mariel.78.86@gmail.com", "iizw wckp uvcs sbij", "gmail")
-
-# Filtrar correos con asuntos específicos y procesarlos
-#mail_checker_gmail.check_mail(["Artificial_Lift", "Agua"], 'imap.gmail.com')
-
-# Crear una instancia de MailChecker para Outlook
-#mail_checker_outlook = MailChecker("mariel.78.86@hotmail.com", "PES2206Madrid", "outlook")
-
-# Filtrar correos con asuntos específicos y procesarlos
-#mail_checker_outlook.check_mail(["asunto3", "asunto4"])
-
-#MailChecker.save_data('uploaded_pdf2.1.pdf', 'mariel.78.86@gmail.com', 'Artificial_Lift')
