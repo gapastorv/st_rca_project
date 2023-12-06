@@ -198,8 +198,3 @@ class FirebaseDB:
         except auth.UnexpectedResponseError as e:
             # Manejar errores inesperados
             return None, 2
-
-# firebase = FirebaseDB()
-# value = firebase.set_user_data('ovk5Bjt2Lin5rlIzgcIx', 'subjects', 'tested')
-# dataframe = firebase.extract_data("db_coord/test/coord")
-# print(dataframe)
