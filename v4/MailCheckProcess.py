@@ -75,23 +75,3 @@ def main_process():
 
 
 main_process()
-
-# data = firebase.extract_data("db_acc", '', 'credentials')
-# data_filtrado = [element for element in data if element['access'] == True and element['mailk'] and element['subjects']]
-# print(data)
-# print("Filtrado")
-# print(data_filtrado)
-#
-# # Crear objetos de la clase MailChecker para cada elemento filtrado
-# mail_checkers = []
-# for fil in data_filtrado:
-#     mail = hash.d_s_f(fil['mail'])
-#     password = hash.d_s_f(fil['mailk'])
-#     provider = mail.split('@')[1].split('.')[0]
-#     mail_checker = MailChecker(mail, password, provider)  # Reemplaza '<password>' con la contraseña correspondiente
-#     mail_checkers.append(mail_checker)
-#
-# # Verificar el correo para cada objeto MailChecker con los filtros de asunto correspondientes
-# for mail_checker, fil in zip(mail_checkers, data_filtrado):
-#     subject_filters = fil['subjects']
-#     mail_checker.check_mail(subject_filters)
