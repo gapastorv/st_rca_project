@@ -106,4 +106,3 @@ class DataExtractor:
         compiled[title] = f"{compiled[title]}, {value}" if title in compiled else value
         return compiled
 
-# save_data("uploaded_pdf.pdf", "testmail", "test")
