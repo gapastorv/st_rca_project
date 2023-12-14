@@ -4,13 +4,6 @@ from Firebase import FirebaseDB
 from firebase_admin.auth import UserRecord
 import time
 
-
-# st.set_page_config(initial_sidebar_state="collapsed")
-# Crear containers
-# loginSect = st.container()
-# signUpSect = st.container()
-# mainLoggedSect = st.container()
-
 def main():
     # Configuración inicial de la sesión
     if "logged_in" not in st.session_state:
