@@ -1,0 +1,6 @@
+En la primera versión (1.0), se tiene lo siguiente:
+- Una clase de extracci;on de tablas usando tabula, DataExtractor.
+- Una clase para acceder a la base de datos, Firebase.
+- Una clase para realizar el chequeo constante del correo con imaplib, MailChecker.
+- Una página de streamlit, que contiene un canvas para seleccionar aréas para extracción de tablas.
+- Una clase para presentar un panel, en el cuál se seleccionan las areas para la extracción de datos, Canvas.
