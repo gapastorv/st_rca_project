@@ -1,4 +1,5 @@
 Esta versión 2.0 (v2_incomplete) contiene los siguientes cambios:
 - Se añadieron las páginas de registro e inicio de sesión.
 - Los métodos de chequeo de correo solo aplican para Gmail y Outlook.
-- Aún no se ha integrado el chequeo del correo a un flujo automatizado (proximamente)
+- Aún no se ha integrado el chequeo del correo a un flujo automatizado (próximamente).
+- Se agregaron métodos en la clase Firebase, para guardar y obtener credenciales de usuarios registrados.
