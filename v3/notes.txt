@@ -1,0 +1,5 @@
+En la versión 3.0 se tiene estos cambios:
+- El proceso de chequeo de correo ahora es en paralelo.
+- Se escribió un script para chequear cada correo de usuario registrado, se lo realiza de forma constante.
+- Se añadió una clase de monitoreo de la base de datos, en busca de ver si hay nuevos usuarios y si tuvieran asuntos para chequear.
+- Los métodos internos de chequeo de correo, de MailChecker, ahora realizan el chequeo una sola vez, y no de forma indefinida.
