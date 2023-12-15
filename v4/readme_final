@@ -1,5 +1,5 @@
-En esta versión se tienen los siguientes componentes:
+En esta versión 4.0 se tienen los siguientes componentes:
 - Se agregó una sección de visualizaciones en la aplicación web, se compone de tablas y gráficos lineales.
 - Se añadió una clase DataManager para extraer los datos extraídos de la base de datos.
 - La página de tablas ahora implementa métodos de la clase DataManager, para presentar la información obtenida.
-- Para presentar los gráficos lineales en las visulizaciones, se hace un filtrado de las tablas, para solo tener valores numéricos.
+- Para presentar los gráficos lineales en las visualizaciones, se hace un filtrado de las tablas, para solo tener valores numéricos.
