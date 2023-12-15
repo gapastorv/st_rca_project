@@ -1,3 +1,4 @@
 Cambios para la versión 2.1 (v2_complete):
 - Se añadieron funciones para extraer texto en DataExtractor, aplica tabula y expresiones regulares.
 - Se incluyó una página para definir parámetros de extracción de texto.
+- En la extracción de texto, de adjuntos por correo, se guardan los campos de texto en una tabla general, en la clase MailChecker.
