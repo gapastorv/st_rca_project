@@ -1,1 +1,5 @@
-Finalmente, para esta versión se incluyó una sección de visulizaciones, en la cual por el momento es posible ver datos relevantes de los datos extraidos, y especialmente de proudccion y eficiencia del motor.
+En esta versión se tienen los siguientes componentes:
+- Se agregó una sección de visualizaciones en la aplicación web, se compone de tablas y gráficos lineales.
+- Se añadió una clase DataManager para extraer los datos extraídos de la base de datos.
+- La página de tablas ahora implementa métodos de la clase DataManager, para presentar la información obtenida.
+- Para presentar los gráficos lineales en las visulizaciones, se hace un filtrado de las tablas, para solo tener valores numéricos.
