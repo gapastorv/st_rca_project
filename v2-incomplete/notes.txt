@@ -1,11 +1,4 @@
-The second version now implies the login and signup implementations, 
-also the mail checker now works with Gmail and Outlook. However, 
-it's necessary to mention that this version doesn't join the mail 
-checker with the main program yet, this will appear in the next version.
-
-Consider this version to implement PyCharm, mainly because the code was 
-applied with this IDE. Also, to run the main app page, apply:
-'streamlit run Main_Page.py'
-
-The implementation was with Firebase: 
-https://console.firebase.google.com/project/streamlit-rca/overview?hl=es
+Esta versión contiene los siguientes cambios:
+- Se añadieron las páginas de registro e inicio de sesión.
+- Los métodos de chequeo de correo solo aplican para Gmail y Outlook.
+- Aún no se ha integrado el chequeo del correo a un flujo automatizado (proximamente)
